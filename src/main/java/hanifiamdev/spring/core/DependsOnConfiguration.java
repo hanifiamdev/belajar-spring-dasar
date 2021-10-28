@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Lazy;
 
 /*
 * Depends On
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.DependsOn;
 public class DependsOnConfiguration {
     /*Create bean dibuat defaulnya dari atas kebawah*/
 
+    @Lazy  // Lazy Bean disunakan supaya bean dibuat ketika diakses saja sehingga saat statup tidak otomatis dibuat
     @Bean
     @DependsOn({                 // ini artinya bean foo akan dibuat setelah bean bar
             "bar"
