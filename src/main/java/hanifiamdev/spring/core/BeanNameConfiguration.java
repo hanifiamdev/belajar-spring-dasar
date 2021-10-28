@@ -16,7 +16,7 @@ public class BeanNameConfiguration {
 
     @Primary
     @Bean( name = "fooFirst")
-    public Foo foo1() {
+    Foo foo1() {
         return new Foo();
     }
 
