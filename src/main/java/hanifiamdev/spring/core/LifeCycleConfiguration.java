@@ -1,6 +1,7 @@
 package hanifiamdev.spring.core;
 
 import hanifiamdev.spring.core.data.Connection;
+import hanifiamdev.spring.core.data.Server;
 import org.springframework.context.annotation.Bean;
 
 
@@ -23,6 +24,20 @@ public class LifeCycleConfiguration {
     @Bean
     public Connection connection() {
         return new Connection();
+    }
+
+    /*
+    * Life Cycle Annotations
+    *
+    * Selain menggunakan interface InitializingBean dan DisposableBean, kita juga bisa menggunakan annotation untuk mendaftarkan callback method untuk lifecycle
+    * Pada annotation @Bean, terdapat method initMethod() dan destroyMethod()
+    * initMethod digunakan untuk meregistrasikan method yang akan dipanggil ketika bean selesai dibuat
+    * destroyMethod() digunakan untuk meregistrasikan method yang akan dipanggil ketika bean akan dihancurkan
+    * Methodnya harus tanpa parameter, dan return nya akan dipedulikan, jadi sebaiknya gunakan void saja
+    * */
+    @Bean(initMethod = "start", destroyMethod = "stop")
+    public Server server() {
+        return new Server();
     }
 
 }

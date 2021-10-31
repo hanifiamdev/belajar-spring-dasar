@@ -1,6 +1,7 @@
 package hanifiamdev.spring.core;
 
 import hanifiamdev.spring.core.data.Connection;
+import hanifiamdev.spring.core.data.Server;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,5 +27,10 @@ public class LifeCycleTest {
     @Test
     void testConnection() {
         Connection connection = applicationContext.getBean(Connection.class);
+    }
+
+    @Test
+    void testServer() {
+        Server server = applicationContext.getBean(Server.class);
     }
 }
