@@ -34,8 +34,18 @@ public class LifeCycleConfiguration {
     * initMethod digunakan untuk meregistrasikan method yang akan dipanggil ketika bean selesai dibuat
     * destroyMethod() digunakan untuk meregistrasikan method yang akan dipanggil ketika bean akan dihancurkan
     * Methodnya harus tanpa parameter, dan return nya akan dipedulikan, jadi sebaiknya gunakan void saja
+    *
+    *
+    * @PostConstruct dan @PreDestroy
+    * Selain menggunakan annotation @Bean, untuk menandai sebuah method adalah init method dan destroy method. kita juga bisa menggunakan annotation pada method nya secara langsung
+    * ini bisa digunakan untuk menghindari kita lupa menyebutkan init dan destroy method ketika membuat @Bean
+    * @PostConstruct merupakan method yang ditandai harus dipanggil ketika bean selesai dibuat
+    * @PreDestroy merupakan method yang ditandai harus dipanggil ketika bean akan dihancurkan
+    * Jika sudah menggunakan annotaions ini, kita tidak perlu lagi menyebutnya di @Bean
+    *
     * */
-    @Bean(initMethod = "start", destroyMethod = "stop")
+    //@Bean(initMethod = "start", destroyMethod = "stop")         // gunakan yang ini jika menggunakan   initMethod() dan destroyMethod()
+    @Bean
     public Server server() {
         return new Server();
     }
