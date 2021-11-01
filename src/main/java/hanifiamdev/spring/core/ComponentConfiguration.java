@@ -56,6 +56,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = {
         "hanifiamdev.spring.core.repository",
         "hanifiamdev.spring.core.service",
+        "hanifiamdev.spring.core.configuration",
 })
 public class ComponentConfiguration {
 }
