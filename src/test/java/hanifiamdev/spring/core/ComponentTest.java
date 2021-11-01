@@ -1,8 +1,10 @@
 package hanifiamdev.spring.core;
 
 import hanifiamdev.spring.core.repository.CategoryRepository;
+import hanifiamdev.spring.core.repository.CustomerRepository;
 import hanifiamdev.spring.core.repository.ProductRepository;
 import hanifiamdev.spring.core.service.CategoryService;
+import hanifiamdev.spring.core.service.CustomerService;
 import hanifiamdev.spring.core.service.ProductService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -45,6 +47,16 @@ public class ComponentTest {
         CategoryRepository categoryRepository = applicationContext.getBean(CategoryRepository.class);
 
         Assertions.assertSame(categoryService.getCategoryRepository(), categoryRepository);
+    }
+
+    @Test
+    void testFileDependencyInjection() {
+
+        CustomerService customerService = applicationContext.getBean(CustomerService.class);
+        CustomerRepository customerRepository = applicationContext.getBean(CustomerRepository.class);
+
+        Assertions.assertSame(customerRepository, customerService.getCustomerRepository());
+
     }
 }
 
