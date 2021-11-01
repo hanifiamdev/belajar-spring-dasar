@@ -38,6 +38,13 @@ import org.springframework.context.annotation.Configuration;
 * Namun bagaimana jika terdapat multiple constructor?
 * Jika pada kasus seperti ini, kita harus menandai constructor mana yang akan diigunakan oleh Spring
 * Caranya kita bisa menggunakan annotation @Autowired
+*
+* ## Setter-based Dependency Injectionn ##
+* Selain menggunakan constructor parameter kita juga bisa menggunakan setter method jika ingin melakukan dependency injection
+* Namun untuk setter method, kita perlu penambahan annotaion @Autowired pada setter method nya
+* Secara otomatis Spring akan mencari bean yang dibutuhkan si setter method yang memiliki annotation @Autowired
+* Setter-based DI juga bisa digabung dengan Constructor-based DI
+*
 * */
 @Configuration
 @ComponentScan(basePackages = {
