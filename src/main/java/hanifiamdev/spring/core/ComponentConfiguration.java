@@ -20,10 +20,29 @@ import org.springframework.context.annotation.Configuration;
 * ## Annotaion ##
 * Semua annotation yang sudah kita bahas @Bean juga didukung @Component
 * Seperti misalnya @Scope, @PostConstruct, @PostDestroy, @Lazy, @Primary dan lain lain
+*
+* ## Dependency Injection ##
+* Sebelumnya untuk melakukan Dependency Injection di @Bean, kita bisa menambahkan parameter di method nya
+* Secara otomatis Spring akan memilih bean mana yang cocok untuk parameter tersebut
+* Lalu bagaimana jika menggunakan @Component?
+* Untuk @Component kita bisa melakukan beberapa cara untuk Dependency Injection nya
+*
+* ## Constructor-based Dependency Injection ##
+* Pertama bisa kita lakukan untuk Dependency Injection di @Component adalah dengan menggunakan constructor parameter
+* Kita bisa menambahkan contructor yang memiliki parameter jika membutuhkan bean lain
+* Secara otomatis Spring akan mencarikan bean tersebut, dan ketika membuat bean @Component, Spring akan menggunakan bean yagn dibutuhkan di contructor
+* Constructor-based Dependency Injection hanya mendukung satu constructor, jadi pastikan kita hanya membuat satu contructor
+*
+* ## Multiple Contructor ##
+* Seperti di awal disebutkan bahwa Spring hanya mendukung satu constructor untuk Dependency Injection nya
+* Namun bagaimana jika terdapat multiple constructor?
+* Jika pada kasus seperti ini, kita harus menandai constructor mana yang akan diigunakan oleh Spring
+* Caranya kita bisa menggunakan annotation @Autowired
 * */
 @Configuration
 @ComponentScan(basePackages = {
-        "hanifiamdev.spring.core.service"
+        "hanifiamdev.spring.core.repository",
+        "hanifiamdev.spring.core.service",
 })
 public class ComponentConfiguration {
 }
