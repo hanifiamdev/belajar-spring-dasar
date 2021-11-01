@@ -1,8 +1,10 @@
 package hanifiamdev.spring.core;
 
 
+import hanifiamdev.spring.core.data.MultiFoo;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /*
 * ## Component ##
@@ -58,5 +60,6 @@ import org.springframework.context.annotation.Configuration;
         "hanifiamdev.spring.core.service",
         "hanifiamdev.spring.core.configuration",
 })
+@Import(MultiFoo.class)
 public class ComponentConfiguration {
 }

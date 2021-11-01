@@ -1,16 +1,19 @@
 package hanifiamdev.spring.core;
 
+import hanifiamdev.spring.core.data.MultiFoo;
 import hanifiamdev.spring.core.repository.CategoryRepository;
 import hanifiamdev.spring.core.repository.CustomerRepository;
 import hanifiamdev.spring.core.repository.ProductRepository;
 import hanifiamdev.spring.core.service.CategoryService;
 import hanifiamdev.spring.core.service.CustomerService;
 import hanifiamdev.spring.core.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 
 public class ComponentTest {
 
@@ -60,6 +63,14 @@ public class ComponentTest {
         Assertions.assertSame(normalCustomerRepository, customerService.getNormalCustomerRepository());
         Assertions.assertSame(premiumCustomerRepository, customerService.getPremiumCustomerRepository());
 
+    }
+
+    @Test
+    void testObjectProvider() {
+
+        MultiFoo multiFoo = applicationContext.getBean(MultiFoo.class);
+        Assertions.assertNotNull(multiFoo);
+        Assertions.assertEquals(3, multiFoo.getFoos().size());
     }
 }
 
