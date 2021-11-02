@@ -20,6 +20,12 @@ import org.springframework.context.annotation.Bean;
 * Selain @SpringBootApplication, untuk membuat Application Context nya, kita tidak perlu membuat manual, kita bisa gunakan class SpringApplication
 * Secara otomatis SpringApplication akan membuat AppliactionContext dan melakukan hal-hal yang dibutuhkan secara otomatis
 * https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringApplication.html
+*
+* ## Banner ##
+* Spring Boot memiliki fitur banner, dimana saat aplikasi Spring Boot berjalan, kita bisa menampilkan tulisan banner di console
+* Secara default fitur banner ini akan menyala dan mencari tulisan banner di classpath dengan nama banner.txt
+* Jika tidak ada file tersebut, maka secara otomatis akan menampilkan banner Spring Boot
+* Salah satu contoh tempat untuk membuat banner adalah http://www.bagill.com/ascii-sig.php
 * */
 @SpringBootApplication
 public class FooApplication {
@@ -31,10 +37,10 @@ public class FooApplication {
         System.out.println(foo);
     }
 
-    /*@Bean
+    @Bean
     public Foo foo() { // buang parameter bar klw
         return new Foo();
-    }*/
+    }
 
     /*
     * ## Startup Failure ##
@@ -44,9 +50,9 @@ public class FooApplication {
     * https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/diagnostics/FailureAnalyzer.html
     *
     * */
-    @Bean
+   /* @Bean
     public Foo foo(Bar bar) { // pakai method ini untuk test starup failure
         return new Foo();
-    }
+    }*/
 }
 
