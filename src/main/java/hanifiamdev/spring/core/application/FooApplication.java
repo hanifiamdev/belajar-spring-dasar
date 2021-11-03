@@ -2,11 +2,15 @@ package hanifiamdev.spring.core.application;
 
 import hanifiamdev.spring.core.data.Bar;
 import hanifiamdev.spring.core.data.Foo;
+import hanifiamdev.spring.core.listener.AppStartingListener;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 
 /*
@@ -48,6 +52,7 @@ public class FooApplication {
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(FooApplication.class);
         application.setBannerMode(Banner.Mode.OFF);
+        application.setListeners(List.of(new AppStartingListener()));
 
         ConfigurableApplicationContext applicationContext = application.run(args);
 
