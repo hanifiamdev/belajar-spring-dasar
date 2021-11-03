@@ -20,6 +20,7 @@ import org.springframework.context.ApplicationListener;
 *   Beberapa Event di Spring Boot Application Event di trigger bahkan sebelum Spring membuat Application Context
 *   Oleh karena itu, jika kita buat menggunakan bean, bisa saja beberapa listener tidak akan dipanggil, karena beannya belum dibuat
 *   Agar lebih aman kita bisa menambahkan listener ketika membuat SpringApplication
+*
 * */
 @Slf4j
 public class AppStartingListener implements ApplicationListener<ApplicationStartingEvent> {

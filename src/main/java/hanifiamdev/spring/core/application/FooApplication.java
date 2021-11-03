@@ -42,6 +42,7 @@ public class FooApplication {
         System.out.println(foo);
     }*/
 
+
     /*
     * ## Customizing Spring Appplication ##
     * Kadang ada kalanya kita ingin melakukan pengaturan di Spring Application sebelum Application Contextnya dibuat
