@@ -2,6 +2,7 @@ package hanifiamdev.spring.core.application;
 
 import hanifiamdev.spring.core.data.Bar;
 import hanifiamdev.spring.core.data.Foo;
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -30,11 +31,29 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class FooApplication {
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(FooApplication.class, args);
 
         Foo foo = applicationContext.getBean(Foo.class);
         System.out.println(foo);
+    }*/
+
+    /*
+    * ## Customizing Spring Appplication ##
+    * Kadang ada kalanya kita ingin melakukan pengaturan di Spring Application sebelum Application Contextnya dibuat
+    * https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringApplication.html
+    * Kita bisa menggunakan langsung SpringApplication, atau bisa juga menggunakan SpringApplicationBuilder
+    * https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/builder/SpringApplicationBuilder.html
+    * */
+    public static void main(String[] args) {
+        SpringApplication application = new SpringApplication(FooApplication.class);
+        application.setBannerMode(Banner.Mode.OFF);
+
+        ConfigurableApplicationContext applicationContext = application.run(args);
+
+        Foo foo = applicationContext.getBean(Foo.class);
+        System.out.println(foo);
+
     }
 
     @Bean
